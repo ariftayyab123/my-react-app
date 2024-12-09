@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import UsersList from './UserList';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import UserForm from './UserForm';
 
 function App() {
+  console.log("App component rendered");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Router>
+      <Routes>
+        <Route path="/" element={<UserForm />} />
+        <Route path="/users" element={<UsersList />} />
+      </Routes>
+    </Router>
     </div>
   );
 }
